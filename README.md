@@ -1,16 +1,82 @@
-# React + Vite
+# 💰 BudgetBuddy - Personal Finance Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+BudgetBuddy adalah web manajemen keuangan pribadi yang membantu Anda melacak pemasukan, pengeluaran, tabungan, dan mencapai tujuan finansial Anda. 
 
-Currently, two official plugins are available:
+## ✨ Fitur Utama
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 📊 **Dashboard Beranda** - Lihat ringkasan keuangan Anda dengan grafik interaktif
+- 📅 **Kalender Transaksi** - Lacak transaksi harian dengan tampilan kalender
+- 🎯 **Wishlist & Tabungan** - Tetapkan target tabungan dan pantau progresnya
+- 💸 **Split Bill** - Hitung pembagian tagihan dengan mudah, termasuk pajak
+- 📝 **Manajemen Transaksi** - Tambah, edit, dan kategorisasi transaksi
+- 📈 **Visualisasi Data** - Grafik batang dan pie chart untuk analisis pengeluaran
 
-## React Compiler
+## 🚀 Teknologi yang Digunakan
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 18** - Library JavaScript untuk membangun user interface
+- **CSS Modules** - Styling terpisah dan modular
+- **JavaScript ES6+** - Modern JavaScript syntax
 
-## Expanding the ESLint configuration
+## 📁 Struktur Folder
+```
+GirlsCodeJam/
+│
+├── node_modules/              # Dependencies
+├── public/                    # Public assets
+│
+├── assets/                    # Gambar & assets project
+│   ├── Logo_BudgetBuddy.png
+│   ├── logo-emoji.png
+│   └── vite.svg
+│
+├── src/                       # Source code
+│   │
+│   ├── assets/                # Assets React
+│   │   └── logo_BudgetBuddy.png
+│   │   │   └── vite.svg
+│   │
+│   ├── components/            # Komponen React
+│   │   │
+│   │   ├── charts/           # Komponen grafik
+│   │   │   ├── CategoryChart.jsx
+│   │   │   └── ExpenseChart.jsx
+│   │   │
+│   │   ├── layout/           # Komponen layout
+│   │   │   └── Sidebar.jsx
+│   │   │
+│   │   └── modals/           # Komponen modal/popup
+│   │       ├── AddTransactionModal.jsx
+│   │       ├── TransactionModal.jsx
+│   ├── BerandaPage.jsx
+│   ├── CircularProgress.jsx
+│   ├── KalenderPage.jsx
+│   ├── Sidebar.jsx
+│   ├── SplitBillPage.jsx
+│   └── WishlistPage.jsx
+│   │
+│   ├── data/                 # Data & constants
+│   │   └── initialData.js
+│   │
+│   ├── styles/               # CSS files
+│   │   ├── App.css
+│   │   ├── Beranda.css
+│   │   ├── index.css
+│   │   ├── Kalender.css
+│   │   ├── Modal.css
+│   │   ├── Sidebar.css
+│   │   ├── SplitBill.css
+│   │   └── Wishlist.css
+│   │
+│   ├── App.css               # Global app styles
+│   ├── App.jsx               # Main component
+│   └── main.jsx              # Entry point
+│
+├── .gitignore                # Git ignore rules
+├── eslint.config.js          # ESLint configuration
+├── index.html                # HTML template
+├── package-lock.json         # Lock file dependencies
+├── package.json              # Project dependencies
+└── README.md                 
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Made with ❤️ for GirlsCodeJam**
