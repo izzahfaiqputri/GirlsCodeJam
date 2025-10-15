@@ -1,40 +1,61 @@
-// src/App.jsx
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useState } from "react";
+import Sidebar from "./components/Sidebar";
+import BerandaPage from "./components/BerandaPage";
+import KalenderPage from "./components/KalenderPage";
+import WishlistPage from "./components/WishlistPage";
+import SplitBillPage from "./components/SplitBillPage";
+import AddTransactionModal from "./components/AddTransactionModal";
+import {
+  initialTransactions,
+  initialWishlists,
+  initialBalance,
+} from "./data/initialData.js";
 
-// Import Layout Component
-import Sidebar from './components/layout/Sidebar'; 
+// Import all styles
 
-// Import Page Components
-import Dashboard from './pages/Dashboard';
-import Calendar from './pages/Calendar';
-import Wishlist from './pages/Wishlist';
-import SplitBill from './pages/SplitBill';
-
-// Layout Wrapper (Digunakan untuk semua halaman yang memiliki sidebar)
-const MainLayout = ({ children }) => (
-    <div className="flex h-screen bg-gray-100">
-        <Sidebar />
-        <div className="flex-1 flex flex-col overflow-hidden ml-64"> {/* ml-64 sesuai lebar sidebar */}
-            <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100">
-                {children}
-            </main>
-        </div>
-    </div>
-);
+import "./styles/index.css";
+import "./styles/App.css";
+import "./styles/Beranda.css";
+import "./styles/Kalender.css";
+import "./styles/Modal.css";
+import "./styles/Sidebar.css";
+import "./styles/SplitBill.css";
+import "./styles/Wishlist.css";
 
 function App() {
-    return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<MainLayout><Dashboard /></MainLayout>} />
-                <Route path="/calendar" element={<MainLayout><Calendar /></MainLayout>} />
-                <Route path="/wishlist" element={<MainLayout><Wishlist /></MainLayout>} />
-                <Route path="/split-bill" element={<MainLayout><SplitBill /></MainLayout>} />
-                {/* Tambahkan rute lain di sini */}
-            </Routes>
-        </Router>
-    );
+  const [currentPage, setCurrentPage] = useState("beranda");
+  const [showAddTransaction, setShowAddTransaction] = useState(false);
+  const [transactions, setTransactions] = useState(initialTransactions);
+  const [wishlists, setWishlists] = useState(initialWishlists);
+  const [balance, setBalance] = useState(initialBalance.balance);
+  const [income, setIncome] = useState(initialBalance.income);
+  const [expense, setExpense] = useState(initialBalance.expense);
+  const [savings, setSavings] = useState(initialBalance.savings);
+
+  return (
+    <div className="app-container">
+      <Sidebar currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <div className="main-content">
+        {currentPage === "beranda" && (
+          <BerandaPage
+            balance={balance}
+            income={income}
+            expense={expense}
+            savings={savings}
+            transactions={transactions}
+            onAddTransaction={() => setShowAddTransaction(true)}
+          />
+        )}
+        {currentPage === "kalender" && <KalenderPage />}
+        {currentPage === "wishlist" && <WishlistPage wishlists={wishlists} />}
+        {currentPage === "splitbill" && <SplitBillPage />}
+      </div>
+
+      {showAddTransaction && (
+        <AddTransactionModal onClose={() => setShowAddTransaction(false)} />
+      )}
+    </div>
+  );
 }
 
 export default App;

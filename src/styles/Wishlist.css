@@ -1,0 +1,103 @@
+.wishlist-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.wishlist-card {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.wishlist-card.red {
+  background-color: #f87171;
+}
+
+.wishlist-card.blue {
+  background-color: #60a5fa;
+}
+
+.wishlist-card.green {
+  background-color: #34d399;
+}
+
+.wishlist-card.purple {
+  background-color: #c084fc;
+}
+
+.wishlist-content {
+  position: relative;
+  z-index: 10;
+}
+
+.wishlist-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.wishlist-subtitle {
+  font-size: 0.875rem;
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+.wishlist-amount {
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: white;
+  border-radius: 9999px;
+  transition: width 0.3s;
+}
+
+.progress-percentage {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.add-savings-btn {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-savings-btn:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
